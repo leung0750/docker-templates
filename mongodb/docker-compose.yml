@@ -6,8 +6,8 @@ services:
     ports:
       - "27017:27017"
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ljc       # 设置管理员用户名
-      MONGO_INITDB_ROOT_PASSWORD: "@ljc1234."  # 设置管理员密码
+      MONGO_INITDB_ROOT_USERNAME: admin       # 设置管理员用户名
+      MONGO_INITDB_ROOT_PASSWORD: admin  # 设置管理员密码
     volumes:
       - ./data:/data/db              # 挂载数据存储卷
 

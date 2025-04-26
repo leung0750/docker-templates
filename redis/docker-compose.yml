@@ -1,13 +1,14 @@
+version: "2.1"
 services:
   redis:
     image: redis:latest
     container_name: redis
     ports:
       - "6379:6379"
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
     environment:
-      - ALLOW_EMPTY_PASSWORD=yes
+      - TZ=Asia/Shanghai
     volumes:
-      - ./redis.conf:/usr/local/etc/redis/redis.conf  # 挂载自定义配置文件
-      - ./data:/redis_data  # 使用定义的卷，并将其挂载到容器的/data目录
+      - ./redis.conf:/usr/local/etc/redis/redis.conf  # 自定义配置
+      - ./data:/data  # Redis默认的数据目录就是 /data
     restart: unless-stopped
-
