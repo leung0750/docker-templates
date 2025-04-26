@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: my_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 41rKw8i0bf8aCFtg   # 设置 root 密码
+      MYSQL_DATABASE: cta_leung          # 自动创建的数据库
+      MYSQL_USER: admin_leung                  # 自定义用户
+      MYSQL_PASSWORD: 41rKw8i0bf8aCFtg          # 用户密码
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql         # 持久化数据卷
+

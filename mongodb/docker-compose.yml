@@ -1,0 +1,15 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ljc       # 设置管理员用户名
+      MONGO_INITDB_ROOT_PASSWORD: "@ljc1234."  # 设置管理员密码
+    volumes:
+      - ./data:/data/db              # 挂载数据存储卷
+
+volumes:
+  mongodb_data:

@@ -1,0 +1,13 @@
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf  # 挂载自定义配置文件
+      - ./data:/redis_data  # 使用定义的卷，并将其挂载到容器的/data目录
+    restart: unless-stopped
+
