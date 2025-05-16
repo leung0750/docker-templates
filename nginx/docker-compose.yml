@@ -14,19 +14,8 @@ services:
       # - ./html:/usr/share/nginx/html       # 静态文件目录
       # - ./logs:/var/log/nginx              # 日志目录
       # - ./uploads:/var/www/uploads         # 文件上传目录（确保可写）
-    depends_on:
-      - backend  # 如果有后端服务
     restart: unless-stopped
 
-  # 示例后端服务（可选）
-  backend:
-    image: my_backend:latest
-    expose:
-      - "8000"
-    environment:
-      - UPLOAD_DIR=/app/uploads
-    volumes:
-      - ./uploads:/app/uploads  # 与Nginx共享上传目录
 
 # 自定义网络（提高安全性）
 networks:
